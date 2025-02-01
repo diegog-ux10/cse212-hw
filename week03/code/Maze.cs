@@ -25,14 +25,21 @@ public class Maze
         _mazeMap = mazeMap;
     }
 
-    // TODO Problem 4 - ADD YOUR CODE HERE
     /// <summary>
     /// Check to see if you can move left.  If you can, then move.  If you
     /// can't move, throw an InvalidOperationException with the message "Can't go that way!".
     /// </summary>
     public void MoveLeft()
     {
-        // FILL IN CODE
+        var currentPos = (_currX, _currY);
+        if (_mazeMap.ContainsKey(currentPos) && _mazeMap[currentPos][0]) // Index 0 is left
+        {
+            _currX--; // Move left by decreasing X
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -41,7 +48,15 @@ public class Maze
     /// </summary>
     public void MoveRight()
     {
-        // FILL IN CODE
+        var currentPos = (_currX, _currY);
+        if (_mazeMap.ContainsKey(currentPos) && _mazeMap[currentPos][1]) // Index 1 is right
+        {
+            _currX++; // Move right by increasing X
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -50,7 +65,15 @@ public class Maze
     /// </summary>
     public void MoveUp()
     {
-        // FILL IN CODE
+        var currentPos = (_currX, _currY);
+        if (_mazeMap.ContainsKey(currentPos) && _mazeMap[currentPos][2]) // Index 2 is up
+        {
+            _currY--; // Move up by decreasing Y
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -59,7 +82,15 @@ public class Maze
     /// </summary>
     public void MoveDown()
     {
-        // FILL IN CODE
+        var currentPos = (_currX, _currY);
+        if (_mazeMap.ContainsKey(currentPos) && _mazeMap[currentPos][3]) // Index 3 is down
+        {
+            _currY++; // Move down by increasing Y
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     public string GetStatus()
